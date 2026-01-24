@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.trainkanji"
+    namespace = "jp.co.sysmac.trainkanji"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.trainkanji"
+        applicationId = "jp.co.sysmac.trainkanji"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
