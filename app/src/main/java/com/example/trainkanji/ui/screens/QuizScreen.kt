@@ -4,7 +4,9 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.*
@@ -12,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,6 +53,7 @@ fun QuizScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(AppSpacing.md)
         ) {
             // ヘッダー
@@ -75,7 +79,7 @@ fun QuizScreen(
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
-            Spacer(modifier = Modifier.height(AppSpacing.md))
+            Spacer(modifier = Modifier.height(AppSpacing.sm))
 
             // クイズカード
             uiState.currentKanji?.let { kanji ->
@@ -88,7 +92,7 @@ fun QuizScreen(
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(AppSpacing.lg),
+                            .padding(AppSpacing.md),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         // タイトル
@@ -111,12 +115,18 @@ fun QuizScreen(
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(AppSpacing.lg))
+                        Spacer(modifier = Modifier.height(AppSpacing.sm))
 
                         // 漢字表示
-                        KanjiBox(kanji = kanji.kanji)
+                        KanjiBox(
+                            kanji = kanji.kanji,
+                            textStyle = TextStyle(
+                                fontSize = 64.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        )
 
-                        Spacer(modifier = Modifier.height(AppSpacing.lg))
+                        Spacer(modifier = Modifier.height(AppSpacing.sm))
 
                         // ヒントボタン（回答前のみ）
                         if (!uiState.isAnswered && !uiState.showHint) {
@@ -135,7 +145,7 @@ fun QuizScreen(
                                     fontWeight = FontWeight.Bold
                                 )
                             }
-                            Spacer(modifier = Modifier.height(AppSpacing.md))
+                            Spacer(modifier = Modifier.height(AppSpacing.sm))
                         }
 
                         // ヒント表示
@@ -150,7 +160,7 @@ fun QuizScreen(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Column(
-                                    modifier = Modifier.padding(AppSpacing.md)
+                                    modifier = Modifier.padding(AppSpacing.sm)
                                 ) {
                                     Text(
                                         text = "ヒント",
@@ -164,7 +174,7 @@ fun QuizScreen(
                                     )
                                 }
                             }
-                            Spacer(modifier = Modifier.height(AppSpacing.md))
+                            Spacer(modifier = Modifier.height(AppSpacing.sm))
                         }
 
                         // 選択肢（2x2グリッド）
@@ -198,7 +208,7 @@ fun QuizScreen(
 
                         // 回答後の結果表示
                         if (uiState.isAnswered) {
-                            Spacer(modifier = Modifier.height(AppSpacing.lg))
+                            Spacer(modifier = Modifier.height(AppSpacing.sm))
 
                             Surface(
                                 shape = RoundedCornerShape(AppShapes.buttonRadius),
@@ -210,7 +220,7 @@ fun QuizScreen(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Column(
-                                    modifier = Modifier.padding(AppSpacing.md),
+                                    modifier = Modifier.padding(AppSpacing.sm),
                                     horizontalAlignment = Alignment.CenterHorizontally
                                 ) {
                                     Text(
@@ -257,7 +267,7 @@ fun QuizScreen(
                                 }
                             }
 
-                            Spacer(modifier = Modifier.height(AppSpacing.md))
+                            Spacer(modifier = Modifier.height(AppSpacing.sm))
 
                             // 次へボタン
                             Button(
@@ -272,7 +282,7 @@ fun QuizScreen(
                                     text = "➡️ つぎへ",
                                     style = AppTypography.bodyLarge,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.padding(vertical = AppSpacing.sm)
+                                    modifier = Modifier.padding(vertical = AppSpacing.xs)
                                 )
                             }
                         }
