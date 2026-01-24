@@ -1,0 +1,43 @@
+package com.example.trainkanji.ui.components
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.example.trainkanji.ui.theme.AppColors
+import com.example.trainkanji.ui.theme.AppShapes
+import com.example.trainkanji.ui.theme.AppSpacing
+import com.example.trainkanji.ui.theme.AppTypography
+
+@Composable
+fun KanjiBox(
+    kanji: String,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .background(
+                color = AppColors.kanjiBoxBg,
+                shape = RoundedCornerShape(AppShapes.kanjiBoxRadius)
+            )
+            .border(
+                width = 4.dp,
+                color = AppColors.kanjiBoxBorder,
+                shape = RoundedCornerShape(AppShapes.kanjiBoxRadius)
+            )
+            .padding(AppSpacing.lg),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = kanji,
+            style = AppTypography.kanjiDisplay,
+            color = AppColors.textPrimary
+        )
+    }
+}
