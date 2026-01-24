@@ -1,38 +1,27 @@
 package com.example.trainkanji.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.trainkanji.ui.components.GradientBackground
 import com.example.trainkanji.ui.theme.*
-import com.example.trainkanji.viewmodel.QuizViewModel
-import com.example.trainkanji.viewmodel.ViewModelFactory
-import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun ResultScreen(
+    score: Int,
+    total: Int,
     onRetry: () -> Unit,
-    onBackToStart: () -> Unit,
-    viewModel: QuizViewModel = viewModel(factory = ViewModelFactory(LocalContext.current))
+    onBackToStart: () -> Unit
 ) {
-    val uiState by viewModel.uiState.collectAsState()
-
-    val totalQuestions = uiState.questions.size
-    val score = uiState.score
-    val percentage = if (totalQuestions > 0) {
-        (score * 100 / totalQuestions)
+    val percentage = if (total > 0) {
+        (score * 100 / total)
     } else 0
 
     val (message, emoji) = when {
@@ -81,7 +70,7 @@ fun ResultScreen(
                 ) {
                     // スコア
                     Text(
-                        text = "$score / $totalQuestions",
+                        text = "$score / $total",
                         style = AppTypography.kanjiDisplay.copy(fontSize = 56.sp),
                         color = AppColors.primary,
                         fontWeight = FontWeight.Bold
@@ -97,52 +86,6 @@ fun ResultScreen(
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center
                     )
-
-                    // 間違えた漢字
-                    if (uiState.sessionWrongList.isNotEmpty()) {
-                        Spacer(modifier = Modifier.height(AppSpacing.lg))
-
-                        Divider(color = AppColors.disabled)
-
-                        Spacer(modifier = Modifier.height(AppSpacing.md))
-
-                        Text(
-                            text = "まちがえたかん字",
-                            style = AppTypography.bodyMedium,
-                            color = AppColors.textSecondary,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier.padding(bottom = AppSpacing.sm)
-                        )
-
-                        LazyRow(
-                            horizontalArrangement = Arrangement.spacedBy(AppSpacing.sm)
-                        ) {
-                            items(uiState.sessionWrongList) { kanji ->
-                                Surface(
-                                    shape = RoundedCornerShape(AppShapes.buttonRadius),
-                                    color = AppColors.wrongBg,
-                                    modifier = Modifier.padding(vertical = AppSpacing.xs)
-                                ) {
-                                    Column(
-                                        modifier = Modifier.padding(AppSpacing.md),
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        Text(
-                                            text = kanji.kanji,
-                                            style = AppTypography.titleLarge,
-                                            color = AppColors.wrong,
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                        Text(
-                                            text = kanji.reading,
-                                            style = AppTypography.caption,
-                                            color = AppColors.wrong
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
 

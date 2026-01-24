@@ -33,7 +33,7 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 fun QuizScreen(
     mode: QuizMode,
-    onFinish: () -> Unit,
+    onFinish: (score: Int, total: Int, mode: QuizMode) -> Unit,
     onExit: () -> Unit,
     viewModel: QuizViewModel = viewModel(factory = ViewModelFactory(LocalContext.current))
 ) {
@@ -45,7 +45,7 @@ fun QuizScreen(
 
     LaunchedEffect(uiState.isFinished) {
         if (uiState.isFinished) {
-            onFinish()
+            onFinish(uiState.score, uiState.questions.size, mode)
         }
     }
 

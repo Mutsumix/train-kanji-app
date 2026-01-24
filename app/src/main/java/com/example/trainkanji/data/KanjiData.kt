@@ -84,7 +84,7 @@ object KanjiData {
         KanjiItem(65, "車", "しゃ", "車りょうの中をあるく", KanjiCategory.THINGS),
         KanjiItem(66, "音", "おと", "でん車の音がきこえる", KanjiCategory.THINGS),
         KanjiItem(67, "本", "ほん", "でん車で本をよむ", KanjiCategory.THINGS),
-        KanjiItem(68, "文", "ぶん", "じこくひょうの文字", KanjiCategory.THINGS),
+        KanjiItem(68, "文", "ぶん", "文をかいてつたえる", KanjiCategory.THINGS),
         KanjiItem(69, "字", "じ", "えきめいの字をよむ", KanjiCategory.THINGS),
         KanjiItem(70, "力", "ちから", "でん車は力づよくはしる", KanjiCategory.THINGS),
         KanjiItem(71, "虫", "むし", "虫がまどにとまった", KanjiCategory.THINGS),
