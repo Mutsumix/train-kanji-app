@@ -26,8 +26,8 @@ object KanjiData {
         KanjiItem(19, "土", "ど", "土よう日はとくべつダイヤ", KanjiCategory.DAYS),
 
         // DIRECTIONS (20-27)
-        KanjiItem(20, "上", "のぼ", "上りでん車がきます", KanjiCategory.DIRECTIONS),
-        KanjiItem(21, "下", "くだ", "下りでん車にのる", KanjiCategory.DIRECTIONS),
+        KanjiItem(20, "上", "うえ", "つりかわが上にある", KanjiCategory.DIRECTIONS),
+        KanjiItem(21, "下", "した", "下をむいてあるく", KanjiCategory.DIRECTIONS),
         KanjiItem(22, "左", "ひだり", "左がわのドアがひらきます", KanjiCategory.DIRECTIONS),
         KanjiItem(23, "右", "みぎ", "右がわに気をつけて", KanjiCategory.DIRECTIONS),
         KanjiItem(24, "中", "なか", "でん車の中はすずしい", KanjiCategory.DIRECTIONS),

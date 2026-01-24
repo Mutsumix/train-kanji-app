@@ -40,16 +40,20 @@ fun StartScreen(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .padding(AppSpacing.md)
+                    .size(56.dp)
             ) {
                 Surface(
                     shape = CircleShape,
                     color = AppColors.white,
-                    shadowElevation = 4.dp
+                    shadowElevation = 4.dp,
+                    modifier = Modifier.size(56.dp)
                 ) {
                     Icon(
                         imageVector = Icons.Default.Settings,
                         contentDescription = "せってい",
-                        modifier = Modifier.padding(AppSpacing.md),
+                        modifier = Modifier
+                            .padding(AppSpacing.sm)
+                            .size(32.dp),
                         tint = AppColors.textSecondary
                     )
                 }
