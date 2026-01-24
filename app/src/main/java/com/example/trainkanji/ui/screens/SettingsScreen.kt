@@ -1,5 +1,7 @@
 package com.example.trainkanji.ui.screens
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -9,6 +11,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -17,7 +20,6 @@ import com.example.trainkanji.ui.components.GradientBackground
 import com.example.trainkanji.ui.theme.*
 import com.example.trainkanji.viewmodel.SettingsViewModel
 import com.example.trainkanji.viewmodel.ViewModelFactory
-import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,6 +28,7 @@ fun SettingsScreen(
     onOpenReport: () -> Unit,
     viewModel: SettingsViewModel = viewModel(factory = ViewModelFactory(LocalContext.current))
 ) {
+    val context = LocalContext.current
     val questionCount by viewModel.questionCount.collectAsState()
     var showResetDialog by remember { mutableStateOf(false) }
 
@@ -135,6 +138,47 @@ fun SettingsScreen(
                         )
                         Text(
                             text = "がくしゅうレポート",
+                            style = AppTypography.bodyLarge,
+                            color = AppColors.textPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    Icon(
+                        imageVector = Icons.Filled.ArrowForward,
+                        contentDescription = null,
+                        tint = AppColors.textSecondary
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(AppSpacing.md))
+
+            // フィードバックボタン
+            Card(
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/BnKKULJuDwMpdhWJA"))
+                    context.startActivity(intent)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(AppShapes.cardRadius),
+                colors = CardDefaults.cardColors(containerColor = AppColors.white),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(AppSpacing.lg),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "💬",
+                            style = AppTypography.titleLarge,
+                            modifier = Modifier.padding(end = AppSpacing.md)
+                        )
+                        Text(
+                            text = "フィードバックをおくる",
                             style = AppTypography.bodyLarge,
                             color = AppColors.textPrimary,
                             fontWeight = FontWeight.Bold
