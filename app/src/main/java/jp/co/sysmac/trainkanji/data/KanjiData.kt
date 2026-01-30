@@ -27,7 +27,7 @@ object KanjiData {
 
         // DIRECTIONS (20-27)
         KanjiItem(20, "上", "うえ", "つりかわが上にある", KanjiCategory.DIRECTIONS),
-        KanjiItem(21, "下", "した", "下をむいてあるく", KanjiCategory.DIRECTIONS),
+        KanjiItem(21, "下", "した", "ホームの下にせんろがある", KanjiCategory.DIRECTIONS),
         KanjiItem(22, "左", "ひだり", "左がわのドアがひらきます", KanjiCategory.DIRECTIONS),
         KanjiItem(23, "右", "みぎ", "右がわに気をつけて", KanjiCategory.DIRECTIONS),
         KanjiItem(24, "中", "なか", "でん車の中はすずしい", KanjiCategory.DIRECTIONS),
@@ -47,7 +47,7 @@ object KanjiData {
         KanjiItem(36, "雨", "あめ", "雨の日のでん車", KanjiCategory.NATURE),
         KanjiItem(37, "天", "てん", "天気がいいとよく見える", KanjiCategory.NATURE),
         KanjiItem(38, "気", "き", "気をつけてごじょう車ください", KanjiCategory.NATURE),
-        KanjiItem(39, "石", "いし", "せんろに石がある", KanjiCategory.NATURE),
+        KanjiItem(39, "石", "いし", "石でできたふるいえき", KanjiCategory.NATURE),
         KanjiItem(40, "田", "た", "田んぼのよこをとおる", KanjiCategory.NATURE),
 
         // PEOPLE (41-52)
@@ -67,7 +67,7 @@ object KanjiData {
         // BODY (53-58)
         KanjiItem(53, "目", "め", "目でしんごうを見る", KanjiCategory.BODY),
         KanjiItem(54, "耳", "みみ", "耳でアナウンスをきく", KanjiCategory.BODY),
-        KanjiItem(55, "口", "くち", "口をあける", KanjiCategory.BODY),
+        KanjiItem(55, "口", "くち", "でん車の中で口をとじる", KanjiCategory.BODY),
         KanjiItem(56, "手", "て", "手すりにつかまる", KanjiCategory.BODY),
         KanjiItem(57, "足", "あし", "足もとにちゅうい", KanjiCategory.BODY),
         KanjiItem(58, "見", "み", "しゃそうからけしきを見る", KanjiCategory.BODY),
@@ -84,13 +84,13 @@ object KanjiData {
         KanjiItem(65, "車", "しゃ", "車りょうの中をあるく", KanjiCategory.THINGS),
         KanjiItem(66, "音", "おと", "でん車の音がきこえる", KanjiCategory.THINGS),
         KanjiItem(67, "本", "ほん", "でん車で本をよむ", KanjiCategory.THINGS),
-        KanjiItem(68, "文", "ぶん", "文をかいてつたえる", KanjiCategory.THINGS),
+        KanjiItem(68, "文", "ぶん", "あんないの文をよむ", KanjiCategory.THINGS),
         KanjiItem(69, "字", "じ", "えきめいの字をよむ", KanjiCategory.THINGS),
         KanjiItem(70, "力", "ちから", "でん車は力づよくはしる", KanjiCategory.THINGS),
         KanjiItem(71, "虫", "むし", "虫がまどにとまった", KanjiCategory.THINGS),
         KanjiItem(72, "犬", "いぬ", "犬をつれてでん車にのる", KanjiCategory.THINGS),
-        KanjiItem(73, "糸", "いと", "かせんは糸のよう", KanjiCategory.THINGS),
-        KanjiItem(74, "貝", "かい", "うみでひろった貝をもってかえる", KanjiCategory.THINGS),
+        KanjiItem(73, "糸", "いと", "がせんは糸のよう", KanjiCategory.THINGS),
+        KanjiItem(74, "貝", "かい", "貝かえきでおりる", KanjiCategory.THINGS),
         KanjiItem(75, "正", "ただ", "正しいホームに行く", KanjiCategory.THINGS),
         KanjiItem(76, "年", "ねん", "一年生がでん車にのる", KanjiCategory.THINGS),
         KanjiItem(77, "早", "はや", "早いでん車にのりたい", KanjiCategory.THINGS),
