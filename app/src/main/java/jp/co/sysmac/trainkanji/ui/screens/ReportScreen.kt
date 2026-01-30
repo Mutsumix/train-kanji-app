@@ -33,6 +33,7 @@ fun ReportScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.systemBars)
                 .padding(AppSpacing.lg)
         ) {
             // ヘッダー

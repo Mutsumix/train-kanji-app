@@ -33,7 +33,11 @@ fun StartScreen(
     val weakKanjiCount by viewModel.weakKanjiCount.collectAsState()
 
     GradientBackground {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.systemBars)
+        ) {
             // 設定ボタン（右上）
             IconButton(
                 onClick = onOpenSettings,

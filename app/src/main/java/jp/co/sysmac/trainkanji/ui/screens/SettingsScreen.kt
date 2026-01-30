@@ -36,6 +36,7 @@ fun SettingsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.systemBars)
                 .padding(AppSpacing.lg)
         ) {
             // ヘッダー

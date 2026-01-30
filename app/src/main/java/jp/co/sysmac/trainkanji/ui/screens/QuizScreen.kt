@@ -53,6 +53,7 @@ fun QuizScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.systemBars)
                 .verticalScroll(rememberScrollState())
                 .padding(AppSpacing.md)
         ) {
